@@ -144,7 +144,7 @@ $(document).ready(function() {
        <div class="card my-3"> 
        <div>                             
           <div class="card-block">
-             <h3 class="card-title">${states[c]} </h3>                                                      
+             <h3 class="card-title">${states[c]}</h3>                                                      
              <p class="card-text">
                 <div class="row text-center" style="color:#ffaa21">                        
                    <h5 class="col-7">Confirmed</h5>
@@ -181,7 +181,7 @@ $(document).ready(function() {
 
             }
 
-            var myChart = document.getElementById('myChart').getContext('2d')
+            var myChart = document.getElementById('myChartstatewise').getContext('2d')
 
             var chart = new Chart(myChart, {
                 type: 'line',
