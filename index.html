@@ -1,128 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">      
-      <title>Covid 19 India</title>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">      
-      <link rel="stylesheet" href="./style.css">
-      <link rel="icon" href="./images/1.png"/>
-      <!-- Font Awesome -->
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"> 
+  <head>
+    <meta charset="UTF-8" />
+    <title>Covid 19 India</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./images/1.png" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    />
 
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166958448-1"></script>
-      <script>
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-166958448-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-         gtag('config', 'UA-166958448-1');
-      </script>
+      gtag("config", "UA-166958448-1");
+    </script>
 
-      <meta name="google-site-verification" content="HfAjZXztCvrhaxePqQ0EUBZQhBpEquIFyrO-DmH8abQ" />      
-   </head>   
+    <meta
+      name="google-site-verification"
+      content="HfAjZXztCvrhaxePqQ0EUBZQhBpEquIFyrO-DmH8abQ"
+    />
+  </head>
 
-   <body>                    
-      <div class="container-fluid p-1 text-center headtag">
-         <marquee>
+  <body>
+    <div class="container-fluid p-1 text-center headtag">
+      <!-- <marquee>
             <p class="text-uppercase" style="color: #ff0000;font-weight: bold;">We Have stopped operations on 31st October, 2021. You can only view data from January 2021 to
                October 2021 on this website.</p>
-         </marquee>
-         <h1 class="head">Covid-19 India Tracker</h1> 
-                 
-      </div>
-      <div class="container my-5">
-         <div class="row text-center">
-            <div class="col-md-4 col-sm-6" style="color: #ffaa21;">
-               <h3>Confirmed</h3>
-               <h5 id="confirmed"></h5>
-            </div>
-            <div class="col-md-4 col-sm-6 text-success">
-               <h3>Recovered</h3>
-               <h5 id="recovered"></h5>
-            </div>
-            <div class="col-md-4 col-sm-6 text-danger">
-               <h3>Deceased</h3>
-               <h5 id="deaths"></h5>
-            </div>
-            <div class="col-md-4 col-sm-6" style="color: yellowgreen;">
-               <h3>Tested</h3>
-               <h5 id="tested"></h5>
-            </div>
-            <div class="col-md-4 col-sm-6 text-info">
-               <h3>Vaccinated Dose 1</h3>
-               <h5 id="vaccinated1"></h5>
-            </div>
-            <div class="col-md-4 col-sm-6 text-info">
-               <h3>Vaccinated Dose 2</h3>
-               <h5 id="vaccinated2"></h5>
-            </div>
-         </div>
-         <canvas id="myChartstatewise"></canvas>
-         <canvas id="myChartdatewise"></canvas>
-         <div class="container my-5">
-            <div class="row state-data text-center">
-               <!-- Code Extracted from script.js --> 
-            </div>
-         </div>
-      </div>
-      
-      <!-- Footer -->
-      <footer class="page-footer font-small blue pt-4">
-
-         <!-- Footer Links -->
-         <div class="container-fluid text-center px-4">
-    
-         <!-- Grid row -->
-         <div class="row">
-    
-            <!-- Grid column -->
-            <div class="col-md-4 mb-md-0 mb-3  text-center">
-    
-               <!-- Content -->
-               <p class="text-uppercase" style="font-size: 120%;font-weight: bold;">For more updates follow :-</p>         
-            </div>
-    
-            <div class="col-md-4 mb-md-0 mb-3 text-center" >
-               <a href="https://www.mohfw.gov.in/" target="_blank" style="padding: 10px;box-sizing: border-box;border-style: outset;">https://www.mohfw.gov.in/</a>           
-            </div>
-         
-            <div class="col-md-4 mb-md-0 mb-3 text-center">          
-               <a href="https://www.mygov.in/covid-19"  target="_blank" style="padding: 10px;box-sizing: border-box;border-style: outset;">https://www.mygov.in/covid-19</a>           
-            </div>                   
-            <!-- Grid column -->       
-    
+         </marquee> -->
+      <h1 class="head">Covid-19 India Tracker</h1>
+    </div>
+    <div class="container my-5">
+      <div class="row text-center">
+        <div class="col-md-4 col-sm-6" style="color: #ffaa21">
+          <h3>Confirmed</h3>
+          <h5 id="confirmed"></h5>
         </div>
-        <!-- Grid row -->        
-        
+        <div class="col-md-4 col-sm-6 text-success">
+          <h3>Recovered</h3>
+          <h5 id="recovered"></h5>
+        </div>
+        <div class="col-md-4 col-sm-6 text-danger">
+          <h3>Deceased</h3>
+          <h5 id="deaths"></h5>
+        </div>
+        <div class="col-md-4 col-sm-6" style="color: yellowgreen">
+          <h3>Tested</h3>
+          <h5 id="tested"></h5>
+        </div>
+        <div class="col-md-4 col-sm-6 text-info">
+          <h3>Vaccinated Dose 1</h3>
+          <h5 id="vaccinated1"></h5>
+        </div>
+        <div class="col-md-4 col-sm-6 text-info">
+          <h3>Vaccinated Dose 2</h3>
+          <h5 id="vaccinated2"></h5>
+        </div>
+      </div>
+      <canvas id="myChartstatewise"></canvas>
+      <canvas id="myChartdatewise"></canvas>
+      <div class="container my-5">
+        <div class="row state-data text-center">
+          <!-- Code Extracted from script.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small blue pt-4">
+      <!-- Footer Links -->
+      <div class="container-fluid text-center px-4">
+        <!-- Grid row -->
         <div class="row">
-    
-         <!-- Grid column -->
-         <div class="col-md-12 mb-md-0 mb-1  text-center"> 
+          <!-- Grid column -->
+          <div class="col-md-4 mb-md-0 mb-3 text-center">
             <!-- Content -->
-            <p class="text-uppercase" style="font-weight: bold;">All data are updated as soon as respective state Govt. and central Govt. updates it from their side.</p>                     
-         </div>
+            <p
+              class="text-uppercase"
+              style="font-size: 120%; font-weight: bold"
+            >
+              For more updates follow :-
+            </p>
+          </div>
 
-     </div>
-     <!-- Grid row --> 
-    
-      </div>      
+          <div class="col-md-4 mb-md-0 mb-3 text-center">
+            <a
+              href="https://www.mohfw.gov.in/"
+              target="_blank"
+              style="
+                padding: 10px;
+                box-sizing: border-box;
+                border-style: outset;
+              "
+              >https://www.mohfw.gov.in/</a
+            >
+          </div>
 
+          <div class="col-md-4 mb-md-0 mb-3 text-center">
+            <a
+              href="https://www.mygov.in/covid-19"
+              target="_blank"
+              style="
+                padding: 10px;
+                box-sizing: border-box;
+                border-style: outset;
+              "
+              >https://www.mygov.in/covid-19</a
+            >
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+
+        <div class="row">
+          <!-- Grid column -->
+          <div class="col-md-12 mb-md-0 mb-1 text-center">
+            <!-- Content -->
+            <p class="text-uppercase" style="font-weight: bold">
+              All data are updated as soon as respective state Govt. and central
+              Govt. updates it from their side.
+            </p>
+          </div>
+        </div>
+        <!-- Grid row -->
+      </div>
 
       <!-- Footer Links -->
- 
-   <!-- Copyright -->
-   <div class="footer-copyright text-center py-4 pb-3">© 2021 COVID 19 tracker. All rights reserved | Designed and Maintained by
-     <a href="https://pmondal98.netlify.app/" target="_blank"> Prabhas Mondal</a>
-   </div>
-   <!-- Copyright -->
- 
-   </footer>
-   <!-- Footer -->
 
-   </body>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>  
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>    
-   <script src="script.js"></script>
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-4 pb-3">
+        © 2021 COVID 19 tracker. All rights reserved | Designed and Maintained
+        by
+        <a href="https://pmondal98.netlify.app/" target="_blank">
+          Prabhas Mondal</a
+        >
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
 </html>
