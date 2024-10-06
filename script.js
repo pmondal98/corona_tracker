@@ -42,6 +42,8 @@ $(document).ready(function () {
   var confirmed = [];
   var recovered = [];
   var deaths = [];
+  var vaccinated1 = [];
+  var vaccinated2 = [];
   var states = [];
 
   var dates = [];
@@ -150,6 +152,8 @@ $(document).ready(function () {
           confirmed.push(data[key].total.confirmed);
           recovered.push(data[key].total.recovered);
           deaths.push(data[key].total.deceased);
+          vaccinated1.push(data[key].total.vaccinated1);
+          vaccinated2.push(data[key].total.vaccinated2);
           //       $("#active").append(total_active)
           //       $("#recovered").append(total_recovered)
           //       $("#deaths").append(total_deaths)
@@ -160,7 +164,7 @@ $(document).ready(function () {
 
         newElement.innerHTML += ` 
   
-    <div class="col-xs-12 col-md-6 col-lg-3">
+    <div class="col-xs-12 col-md-6 col-lg-3" style="max-width: 75%">
        <div class="card my-3"> 
        <div>                             
           <div class="card-block">
@@ -171,43 +175,36 @@ $(document).ready(function () {
                 <div class="row text-center" style="color:#ffaa21">                        
                    <h5 class="col-7">Confirmed</h5>
                    <h5 class="col-5" id="stateconfirmed">${nFormatter(
-                     Number(data[key].total.confirmed),
-                     Number(data[key].total.confirmed).toString().length
+                     Number(confirmed[c]),
+                     Number(confirmed[c]).toString().length
                    )}</h5>                        
                 </div>
                 <div class="row text-center text-success">                        
                    <h5 class="col-7">Recovered</h5>
                    <h5 class="col-5" id="staterecovered">${nFormatter(
-                     Number(data[key].total.recovered),
-                     Number(data[key].total.recovered).toString().length
+                     Number(recovered[c]),
+                     Number(recovered[c]).toString().length
                    )}</h5>                        
                 </div>
                 <div class="row text-center text-danger">                        
                    <h5 class="col-7">Deceased</h5>
                    <h5 class="col-5" id="statedeaths">${nFormatter(
-                     Number(data[key].total.deceased),
-                     Number(data[key].total.deceased).toString().length
+                     Number(deaths[c]),
+                     Number(deaths[c]).toString().length
                    )}</h5>                        
                 </div>   
-                <div class="row text-center" style="color: yellowgreen;">                        
-                   <h5 class="col-7">Tests</h5>
-                   <h5 class="col-5" id="statetests">${nFormatter(
-                     Number(data[key].total.tested),
-                     Number(data[key].total.tested).toString().length
-                   )}</h5>                        
-                </div>
                 <div class="row text-center text-info">                        
                    <h5 class="col-7">Dose 1</h5>
                    <h5 class="col-5" id="dose1">${nFormatter(
-                     Number(data[key].total.vaccinated1),
-                     Number(data[key].total.vaccinated1).toString().length
+                     Number(vaccinated1[c]),
+                     Number(vaccinated1[c]).toString().length
                    )}</h5>                        
                 </div>
                 <div class="row text-center text-info">                        
                    <h5 class="col-7">Dose 2</h5>
                    <h5 class="col-5" id="dose2">${nFormatter(
-                     Number(data[key].total.vaccinated2),
-                     Number(data[key].total.vaccinated2).toString().length
+                     Number(vaccinated2[c]),
+                     Number(vaccinated2[c]).toString().length
                    )}</h5>                        
                 </div>                                     
              </p>
