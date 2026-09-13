@@ -1,160 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Covid 19 India</title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="icon" href="./images/1.png" />
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-    />
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-166958448-1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "UA-166958448-1");
-    </script>
-
-    <meta
-      name="google-site-verification"
-      content="HfAjZXztCvrhaxePqQ0EUBZQhBpEquIFyrO-DmH8abQ"
-    />
-  </head>
-
-  <body>
-    <div class="container-fluid p-1 text-center headtag">
-      <!-- <marquee>
-            <p class="text-uppercase" style="color: #ff0000;font-weight: bold;">We Have stopped operations on 31st October, 2021. You can only view data from January 2021 to
-               October 2021 on this website.</p>
-         </marquee> -->
-      <h1 class="head">Covid-19 India Tracker</h1>
-    </div>
-    <div class="container" style="max-width: 75%">
-      <div class="row text-center">
-        <div class="col-md-4 col-sm-6" style="color: #ffaa21">
-          <h3>Confirmed</h3>
-          <h5 id="confirmed"></h5>
-        </div>
-        <div class="col-md-4 col-sm-6 text-success">
-          <h3>Recovered</h3>
-          <h5 id="recovered"></h5>
-        </div>
-        <div class="col-md-4 col-sm-6 text-danger">
-          <h3>Deceased</h3>
-          <h5 id="deaths"></h5>
-        </div>
-        <div class="col-md-4 col-sm-6" style="color: yellowgreen">
-          <h3>Tested</h3>
-          <h5 id="tested"></h5>
-        </div>
-        <div class="col-md-4 col-sm-6 text-info">
-          <h3>Vaccinated Dose 1</h3>
-          <h5 id="vaccinated1"></h5>
-        </div>
-        <div class="col-md-4 col-sm-6 text-info">
-          <h3>Vaccinated Dose 2</h3>
-          <h5 id="vaccinated2"></h5>
-        </div>
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b1220">
+  <title>India COVID-19 Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><link rel="stylesheet" href="./style.css"><link rel="icon" href="./images/covid-india-tracker-logo.png">
+  <style>.district-view{margin-top:36px;scroll-margin-top:20px}.district-view[hidden]{display:none}.district-top{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:18px}.back-button{background:#fff;border:1px solid #e7ebf2;border-radius:8px;color:#14213a;padding:9px 12px;font:600 12px "DM Sans",sans-serif;cursor:pointer}.back-button:hover{background:#eefaf9}.district-note{color:#6a7891;font-size:12px;margin:5px 0 0}.district-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.district-card{background:#fff;border:1px solid #e7ebf2;border-radius:13px;padding:18px}.district-card h3{font:700 15px Manrope,sans-serif;margin:0 0 13px}.state-card{cursor:pointer}.state-card:focus{outline:3px solid #9fe5dc;outline-offset:2px}.drilldown{width:100%;margin-top:14px;border:0;background:#edf9f8;color:#0b867c;border-radius:7px;padding:8px;font:700 11px "DM Sans",sans-serif;cursor:pointer}.drilldown:hover{background:#d8f2ef}.chart-filter{display:flex;align-items:center;gap:8px;color:#6a7891;font:600 12px "DM Sans",sans-serif;margin-bottom:15px}.chart-filter select{appearance:auto;background:#f7fafc;border:1px solid #dce4ed;border-radius:7px;color:#14213a;cursor:pointer;font:600 12px "DM Sans",sans-serif;padding:7px 9px}.chart-filter select:focus{outline:3px solid #bcece6;outline-offset:1px}@media(max-width:1000px){.district-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:700px){.district-grid{grid-template-columns:repeat(2,1fr)}.district-top{align-items:flex-start;flex-direction:column}}@media(max-width:390px){.district-grid{grid-template-columns:1fr}}</style>
+  <style>.charts-grid{grid-template-columns:1fr}.canvas-wrap{height:340px}.interactive-legend{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin:4px 0 10px}.interactive-legend button{display:flex;align-items:center;gap:6px;border:0;background:none;color:#53627a;cursor:pointer;font:500 11px "DM Sans",sans-serif;padding:5px 2px}.interactive-legend button:hover{color:#14213a}.interactive-legend button:not(.active){color:#9ca7b7;text-decoration:line-through}.legend-swatch{width:11px;height:11px;display:inline-block}.legend-swatch.confirmed{background:#e49728}.legend-swatch.recovered{background:#17a672}.legend-swatch.deceased{background:#df5a5a}@media(max-width:700px){.canvas-wrap{height:260px}}</style>
+  <style>.copyright a{color:#5fdfc9;text-decoration:none;font-weight:700}.copyright a:hover{text-decoration:underline}</style>
+  <style>.chart-hover{display:none;position:absolute;z-index:5;min-width:148px;pointer-events:none;background:#14213a;color:#fff;border-radius:8px;padding:9px 11px;box-shadow:0 8px 24px rgba(10,25,48,.2);font:11px "DM Sans",sans-serif}.chart-hover.visible{display:block}.chart-hover strong{display:block;margin-bottom:6px}.chart-hover div{display:flex;justify-content:space-between;gap:16px;line-height:1.7}.chart-hover span{color:#cdd8e6}</style>
+</head>
+<body>
+  <header class="hero"><nav class="navbar page-width"><a class="brand" href="#top"><span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span>COVID-19 India Tracker</a><a class="nav-link" href="#states">Explore states <i class="fa-solid fa-arrow-down"></i></a></nav>
+    <div class="hero-content page-width" id="top"><div><p class="eyebrow"><span></span> INDIA PUBLIC HEALTH SNAPSHOT</p><h1>COVID-19, made<br><em>easier to understand.</em></h1><p class="hero-copy">A focused view of reported cases, recoveries, vaccinations and testing across India and its states.</p></div><div class="updated-card" id="data-status" aria-live="polite"><span class="status-dot"></span><div><small>DATA STATUS</small><strong>Loading latest data…</strong></div></div></div>
+  </header>
+  <main class="page-width">
+    <section class="summary-section" aria-labelledby="summary-title"><div class="section-heading"><div><p class="eyebrow dark">NATIONAL OVERVIEW</p><h2 id="summary-title">India at a glance</h2></div><p>Reported cumulative totals</p></div>
+      <div class="metric-grid">
+        <article class="metric-card confirmed"><span class="metric-icon"><i class="fa-solid fa-virus"></i></span><p>Confirmed</p><strong id="confirmed">—</strong></article><article class="metric-card recovered"><span class="metric-icon"><i class="fa-solid fa-heart-circle-check"></i></span><p>Recovered</p><strong id="recovered">—</strong></article><article class="metric-card deaths"><span class="metric-icon"><i class="fa-solid fa-ribbon"></i></span><p>Deceased</p><strong id="deaths">—</strong></article><article class="metric-card tested"><span class="metric-icon"><i class="fa-solid fa-flask"></i></span><p>Tests conducted</p><strong id="tested">—</strong></article><article class="metric-card vaccinated"><span class="metric-icon"><i class="fa-solid fa-syringe"></i></span><p>First dose</p><strong id="vaccinated1">—</strong></article><article class="metric-card vaccinated"><span class="metric-icon"><i class="fa-solid fa-shield-heart"></i></span><p>Second dose</p><strong id="vaccinated2">—</strong></article>
       </div>
-      <canvas id="myChartstatewise"></canvas>
-      <canvas id="myChartdatewise"></canvas>
-      <div class="container my-3" style="max-width: 90%">
-        <div class="row state-data text-center">
-          <!-- Code Extracted from script.js -->
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="page-footer font-small blue pt-4">
-      <!-- Footer Links -->
-      <div class="container-fluid text-center px-4">
-        <!-- Grid row -->
-        <div class="row">
-          <!-- Grid column -->
-          <div class="col-md-4 mb-md-0 mb-3 text-center">
-            <!-- Content -->
-            <p
-              class="text-uppercase"
-              style="font-size: 120%; font-weight: bold"
-            >
-              For more updates follow :-
-            </p>
-          </div>
-
-          <div class="col-md-4 mb-md-0 mb-3 text-center">
-            <a
-              href="https://www.mohfw.gov.in/"
-              target="_blank"
-              style="
-                padding: 10px;
-                box-sizing: border-box;
-                border-style: outset;
-              "
-              >https://www.mohfw.gov.in/</a
-            >
-          </div>
-
-          <div class="col-md-4 mb-md-0 mb-3 text-center">
-            <a
-              href="https://www.mygov.in/covid-19"
-              target="_blank"
-              style="
-                padding: 10px;
-                box-sizing: border-box;
-                border-style: outset;
-              "
-              >https://www.mygov.in/covid-19</a
-            >
-          </div>
-          <!-- Grid column -->
-        </div>
-        <!-- Grid row -->
-
-        <div class="row">
-          <!-- Grid column -->
-          <div class="col-md-12 mb-md-0 mb-1 text-center">
-            <!-- Content -->
-            <p class="text-uppercase" style="font-weight: bold">
-              All data are updated as soon as respective state Govt. and central
-              Govt. updates it from their side.
-            </p>
-          </div>
-        </div>
-        <!-- Grid row -->
-      </div>
-
-      <!-- Footer Links -->
-
-      <!-- Copyright -->
-      <div class="footer-copyright text-center py-4 pb-3">
-        © 2021 COVID 19 tracker. All rights reserved | Designed and Maintained
-        by
-        <a href="https://prabhasmondal.netlify.app/" target="_blank">
-          Prabhas Mondal</a
-        >
-      </div>
-      <!-- Copyright -->
-    </footer>
-    <!-- Footer -->
-  </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <script src="script.js"></script>
-</html>
+    </section>
+    <section class="charts-grid" aria-label="COVID-19 charts"><article class="chart-panel"><div class="chart-heading"><div><p class="eyebrow dark">BY REGION</p><h2>State-wise totals</h2></div></div><div class="interactive-legend" data-legend="state" aria-label="State chart filters"><button class="active" data-series="0"><span class="legend-swatch confirmed"></span>Confirmed</button><button class="active" data-series="1"><span class="legend-swatch recovered"></span>Recovered</button><button class="active" data-series="2"><span class="legend-swatch deceased"></span>Deceased</button></div><div class="canvas-wrap"><canvas id="myChartstatewise"></canvas></div></article><article class="chart-panel"><div class="chart-heading"><div><p class="eyebrow dark">OVER TIME</p><h2>National trend</h2></div></div><div class="interactive-legend" data-legend="trend" aria-label="National trend chart filters"><button class="active" data-series="0"><span class="legend-swatch confirmed"></span>Confirmed</button><button class="active" data-series="1"><span class="legend-swatch recovered"></span>Recovered</button><button class="active" data-series="2"><span class="legend-swatch deceased"></span>Deceased</button></div><div class="canvas-wrap"><canvas id="myChartdatewise"></canvas></div></article></section>
+    <section class="states-section" id="states" aria-labelledby="states-title"><div class="section-heading state-heading"><div><p class="eyebrow dark">STATE &amp; UNION TERRITORY DATA</p><h2 id="states-title">Explore local updates</h2></div><label class="search"><i class="fa-solid fa-magnifying-glass"></i><input id="state-search" type="search" placeholder="Search a state" aria-label="Search states"></label></div><div class="state-data" id="state-data" aria-live="polite"><p class="loading">Preparing state data…</p></div></section>
+    <section class="district-view" id="district-view" hidden aria-live="polite"><div class="district-top"><div><p class="eyebrow dark">DISTRICT DATA</p><h2 id="district-title">District-wise updates</h2></div><button class="back-button" id="back-to-states"><i class="fa-solid fa-arrow-left"></i> All states</button></div><div class="district-grid" id="district-data"></div></section>
+  </main>
+  <footer><div class="page-width footer-inner"><div><a class="brand" href="#top"><span class="brand-mark"><i class="fa-solid fa-heart-pulse"></i></span>COVID-19 India Tracker</a><p>Publicly reported COVID-19 information for India.</p></div><div class="footer-links"><a href="https://www.mohfw.gov.in/" target="_blank" rel="noopener">Ministry of Health <i class="fa-solid fa-arrow-up-right-from-square"></i></a><a href="https://www.mygov.in/covid-19" target="_blank" rel="noopener">MyGov COVID-19 <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div><div class="copyright page-width">© 2021–2026 COVID-19 India Tracker. Data is displayed as reported by public sources. <span>Designed &amp; developed by <a href="https://prabhasmondal.netlify.app/" target="_blank" rel="noopener">Prabhas Mondal</a>.</span></div></footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script><script src="script.js?v=20260913214009"></script>
+</body></html>
